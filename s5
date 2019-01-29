@@ -1,0 +1,50 @@
+// studio5.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include<iostream>
+using namespace std;
+
+void swap(int & i, int & j)
+{
+	cout << "version 1" << endl;
+	int temp;
+	temp = i;
+	i = j;
+	j = temp;
+	return;
+}
+
+void swap(int * &i, int * &j)
+{
+	cout << "version 2" << endl;
+	int * temp;
+	temp = i;
+	i = j;
+	j = temp;
+	return;
+ }
+
+void swap(int * const &i, int * const &j)
+{
+	cout << "version 3" << endl;
+	int temp = 0;
+	temp = *i;
+	*i = *j;
+	*j = temp;
+	return;
+}
+
+int main()
+{
+	int i = 5;
+	int j = 9;
+	int * const i_ = & i;
+	int * const j_ = & j;
+	/*swap(i, j);*/
+	/*swap(i_, j_);*/
+	swap(i_, j_);
+	cout << "i = "; cout << *i_ << endl;
+	cout << "j = "; cout << *j_ << endl;
+	return 0;
+}
